@@ -1,15 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.tpp                                          :+:      :+:    :+:   */
+/*   Dog.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 01:56:32 by mcipolla          #+#    #+#             */
-/*   Updated: 2022/09/13 01:59:06 by mcipolla         ###   ########.fr       */
+/*   Created: 2022/10/07 17:37:51 by mcipolla          #+#    #+#             */
+/*   Updated: 2022/10/07 17:40:29 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Array.h"
+#ifndef DOG_H
+#define DOG_H
 
-Array::Array(): _arr(new T(0)), _size(0){};
+#include "Animal.h"
+#include <iostream>
+
+class Dog : Animal
+{
+private:
+	std::string	_type;
+public:
+	Dog(std::string type);
+	~Dog();
+	void	makeSound();
+};
+
+#endif
