@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.h                                              :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 17:37:51 by mcipolla          #+#    #+#             */
-/*   Updated: 2022/10/07 19:14:57 by mcipolla         ###   ########.fr       */
+/*   Created: 2022/10/07 17:40:08 by mcipolla          #+#    #+#             */
+/*   Updated: 2022/10/07 19:12:49 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_H
-#define DOG_H
+#include "Cat.h"
 
-#include "Animal.h"
-#include <iostream>
-
-class Dog : public Animal
+Cat::Cat()
 {
-private:
-	
-public:
-	Dog();
-	~Dog();
-	void	makeSound() const;
-};
+	this->_type = "Cat";
+	std::cout << "Cat costructor" << std::endl;
+}
 
-#endif
+Cat::~Cat()
+{
+	std::cout << "Cat destructor" << std::endl;
+}
+
+void	Cat::makeSound() const
+{
+	std::cout << "Meow Meow" << std::endl;
+}

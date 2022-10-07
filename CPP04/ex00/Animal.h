@@ -6,7 +6,7 @@
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 17:34:12 by mcipolla          #+#    #+#             */
-/*   Updated: 2022/10/07 17:36:45 by mcipolla         ###   ########.fr       */
+/*   Updated: 2022/10/07 19:13:00 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ANIMAL_H
 
 #include <string>
+#include <iostream>
 
 class Animal
 {
@@ -21,9 +22,9 @@ protected:
 	std::string	_type;
 public:
 	Animal();
-	Animal(std::string type);
 	~Animal();
-	void	makeSound();
+	void	makeSound() const;
+	const std::string	&getType() const;
 };
 
 #endif
