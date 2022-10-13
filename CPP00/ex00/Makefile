@@ -4,6 +4,7 @@ NAME = megaphone
 
 $(NAME):
 	g++ $(FLAGS) $(SRC) -o $(NAME)
+	
 clean:
 		rm -f $(NAME)
 
