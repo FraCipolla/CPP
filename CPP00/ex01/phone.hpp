@@ -1,5 +1,5 @@
-#ifndef HEADER_HPP
-#define HEADER_HPP
+#ifndef PHONE_HPP
+#define PHONE_HPP
 
 # include <iostream>
 # include <iomanip>
@@ -8,7 +8,7 @@
 
 class Contacts{
 	private:
-    int n_contacts = 0;
+    int n_contacts;
 	std::string	FirstName;
 	std::string	LastName;
 	std::string	Nickname;
@@ -18,55 +18,26 @@ class Contacts{
 	public:
 
 	// Set
-    void    increase_contact_n(){
-        if (n_contacts < 8)
-            n_contacts += 1;
-    }
-	void		setFirstName(std::string& str){
-		FirstName = str;
-	}
-	void		setLastName(std::string& str){
-		LastName = str;
-	}
-	void		setNickName(std::string& str){
-		Nickname = str;
-	}
-	void		setPhone(std::string& str){
-		Phone = str;
-	}
-	void		setSecret(std::string& str){
-		Secret = str;
-	}
+    void		increase_contact_n();
+	void		setFirstName(std::string& str);
+	void		setLastName(std::string& str);
+	void		setNickName(std::string& str);
+	void		setPhone(std::string& str);
+	void		setSecret(std::string& str);
 
 	// Get
-    int get_n_contcts(){
-        return (n_contacts);
-    }
-	std::string	get_FirstName(){
-		return (FirstName);
-	}
-	std::string	get_LastName(){
-		return (LastName);
-	}
-	std::string	get_Nickname(){
-		return (Nickname);
-	}
-	std::string get_Phone(){
-		return (Phone);
-	}
-	std::string get_Secret(){
-		return (Secret);
-	}
+    int get_n_contcts();
+	std::string	get_FirstName();
+	std::string	get_LastName();
+	std::string	get_Nickname();
+	std::string get_Phone();
+	std::string get_Secret();
 };
 
 class PhoneBook{
 	public:
 		Contacts	phone_book[8];
-        int         index = 0;
+        int         index;
 };
-
-bool    is_digit(const std::string& str){
-    return (str.find_first_not_of("0123456789") == std::string::npos);
-}
 
 #endif

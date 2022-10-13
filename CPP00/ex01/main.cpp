@@ -1,4 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/13 15:43:06 by mcipolla          #+#    #+#             */
+/*   Updated: 2022/10/13 15:43:06 by mcipolla         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "phone.hpp"
+
+bool    is_digit(const std::string& str){
+    return (str.find_first_not_of("0123456789") == std::string::npos);
+}
 
 std::string	return_str(std::string str){
 	if (str.length() < 11){
@@ -35,6 +51,7 @@ void	display_contact(Contacts *contact){
 	std::cout << "Last Name: " << contact->get_LastName() << std::endl;
 	std::cout << "NickName: " << contact->get_Nickname() << std::endl;
 	std::cout << "Phone Number: " << contact->get_Phone() << std::endl;
+	std::cout << "Darkest Secre: " << contact->get_Secret() << std::endl;
 }
 
 void	search_print(PhoneBook *phone, Contacts *contacts){
@@ -42,7 +59,7 @@ void	search_print(PhoneBook *phone, Contacts *contacts){
 		std::cout << "No contacts to display, please run ADD before!" << std::endl;
 		return ;
 	}
-	for (int i = 0; i < contacts->get_n_contcts() & i < 8; i++){
+	for (int i = 0; i < contacts->get_n_contcts() && i < 8; i++){
 		std::cout << "Index: "; std::cout << i; std::cout << "  |";
 		std::cout << return_str(phone->phone_book[i].get_FirstName()); std::cout << "|";
 		std::cout << return_str(phone->phone_book[i].get_LastName()); std::cout << "|";
@@ -60,8 +77,7 @@ void	search_print(PhoneBook *phone, Contacts *contacts){
 		}
 		else if (isdigit(buff[0])){
 			i = std::stoi(buff);
-			if (i <= contacts->get_n_contcts() & (i >= 0 & i <= 7)){
-				std::cout << "ENTRA" << std::endl;
+			if (i <= contacts->get_n_contcts() && (i >= 0 & i <= 7)){
 				display_contact(&phone->phone_book[i]);
 				break ;
 			}
