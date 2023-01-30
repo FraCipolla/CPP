@@ -1,5 +1,5 @@
-NAME = animal
-SRC = Cat.cpp Dog.cpp Animal.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
+NAME = materia
+SRC = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
 FLAG = -Wall -Werror -Wextra -std=c++98
 
 $(NAME):

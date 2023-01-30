@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 17:40:08 by mcipolla          #+#    #+#             */
-/*   Updated: 2023/01/30 15:11:12 by mcipolla         ###   ########.fr       */
+/*   Created: 2023/01/30 15:11:43 by mcipolla          #+#    #+#             */
+/*   Updated: 2023/01/30 15:14:18 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat()
+WrongCat::WrongCat()
 {
-	this->_type = "Cat";
-	std::cout << "Cat costructor" << std::endl;
+	this->_type = "WrongCat";
+	std::cout << "WrongCat costructor" << std::endl;
 }
 
-Cat::Cat(const Cat &cpy)
+WrongCat::WrongCat(const WrongCat &cpy)
 {
 	this->_type = cpy.getType();
-	std::cout << "Cat Copy constructor" << std::endl;
+	std::cout << "WrongCat Copy constructor" << std::endl;
 }
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-	std::cout << "Cat destructor" << std::endl;
+	std::cout << "WrongCat destructor" << std::endl;
 }
 
-void	Cat::makeSound() const
+void	WrongCat::makeSound() const
 {
-	std::cout << "Meow Meow" << std::endl;
+	std::cout << "Pio Pio" << std::endl;
 }
 
-
-Cat &Cat::operator=(const Cat & c)
+WrongCat &WrongCat::operator=(const WrongCat & c)
 {
 	this->_type = c.getType();
 	

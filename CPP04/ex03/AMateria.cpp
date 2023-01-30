@@ -6,7 +6,7 @@
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 17:19:42 by mcipolla          #+#    #+#             */
-/*   Updated: 2022/09/10 18:59:18 by mcipolla         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:40:18 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ AMateria::AMateria()
 AMateria::AMateria(std::string const & type) : _type(type)
 {
 	std::cout << "AMateria Constructor" << std::endl;
+}
+
+AMateria::AMateria(AMateria const & ref) : _type(ref._type)
+{
+	std::cout << "Abstract materia has beed constructed from a copy\n";
 }
 
 AMateria::~AMateria()

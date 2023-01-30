@@ -6,7 +6,7 @@
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 17:40:08 by mcipolla          #+#    #+#             */
-/*   Updated: 2023/01/30 12:39:45 by mcipolla         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:10:40 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ Dog::Dog()
 	std::cout << "Dog costructor" << std::endl;
 }
 
+Dog::Dog(const Dog &cpy)
+{
+	this->_type = cpy.getType();
+	std::cout << "Dog Copy constructor" << std::endl;
+}
+
 Dog::~Dog()
 {
 	std::cout << "Dog destructor" << std::endl;
@@ -26,4 +32,11 @@ Dog::~Dog()
 void	Dog::makeSound() const
 {
 	std::cout << "Woof Woof" << std::endl;
+}
+
+Dog &Dog::operator=(const Dog & c)
+{
+	this->_type = c.getType();
+
+	return *this;
 }

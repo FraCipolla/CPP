@@ -6,7 +6,7 @@
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 17:37:51 by mcipolla          #+#    #+#             */
-/*   Updated: 2023/01/30 12:35:25 by mcipolla         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:10:52 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@
 class Cat : public Animal
 {
 private:
-	
 public:
 	Cat();
+	Cat(const Cat &cpy);
 	~Cat();
+
+	Cat &operator=(const Cat & c);
+
+	// member functions
 	void	makeSound() const;
 };
 

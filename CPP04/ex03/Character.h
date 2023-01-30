@@ -6,7 +6,7 @@
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 15:00:18 by mcipolla          #+#    #+#             */
-/*   Updated: 2022/09/10 18:28:43 by mcipolla         ###   ########.fr       */
+/*   Updated: 2023/01/30 16:30:52 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ class Character : public ICharacter
 		std::string const	_name;
 	public:
 		Character(std::string name);
+		Character(const Character & ref);
 		~Character();
+
+		Character & operator=(const Character & ref);
+
 		std::string const & getName() const;
 		void equip(AMateria* m);
 		void unequip(int idx);

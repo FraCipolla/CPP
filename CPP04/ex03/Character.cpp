@@ -6,7 +6,7 @@
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 17:19:33 by mcipolla          #+#    #+#             */
-/*   Updated: 2022/09/10 18:39:47 by mcipolla         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:43:20 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@ Character::Character(std::string name) : _name(name)
 	}
 }
 
+Character::Character(const Character & ref) : _name(ref.getName() + "_copy")
+{
+	for(int i = 0; i < 4; i++)
+	{
+		// Deep copy!
+		if ((ref._slot)[i])
+			(this->_slot)[i] = (ref._slot[i])->clone();
+	}
+	std::cout << "A character named " << _name << " was created from copy of " << ref._name << "\n";
+}
+
 Character::~Character()
 {
 	std::cout << "Deleting Character " << _name << " and freeing Materia" << std::endl;
@@ -32,6 +43,18 @@ Character::~Character()
 	}
 }
 
+Character & Character::operator=(Character const & ref)
+{
+	for(int i = 0; i < 4; i++)
+	{
+		if (this->_slot[i])
+			delete this->_slot[i];
+		if (ref._slot[i])
+			this->_slot[i] = (ref._slot[i])->clone();
+	}
+	return (*this);
+}
+
 std::string	const &	Character::getName() const
 {
 	return (_name);
@@ -40,18 +63,16 @@ std::string	const &	Character::getName() const
 void	Character::equip(AMateria* m)
 {
 	int i = 0;
-	if (m == NULL)
+	if (!m)
 		return ;
-	while (i < 4)
-	{
-		if ((this->_slot)[i] == 0)
-		{
-			(this->_slot)[i] = m;
-			std::cout << "Equipped " << m->getType() << "in slot " << i << std::endl;
-			return ;
-		}
+	while ((this->_slot)[i] != 0 && i < 4)
 		i++;
+	if (i >= 4)
+	{
+		std::cout << this->_name << " can't equip more than 4 Materia";
+		return ;
 	}
+	(this->_slot)[i] = m;
 	std::cout << "Couldn't equip the materia, try to unequip some slot before" << std::endl;
 }
 
@@ -78,10 +99,8 @@ void	Character::use(int idx, ICharacter& target)
 	{
 		if ((this->_slot)[idx] != NULL)
 		{
-			std::cout << "Materia " << (this->_slot)[idx]->getType() << " used on ";
 			(this->_slot)[idx]->use(target);
-		}
-		else{
+		} else {
 			std::cout << "There's no Materia in that slot" << std::endl;
 		}
 	}

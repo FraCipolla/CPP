@@ -1,5 +1,5 @@
-NAME = animal
-SRC = Cat.cpp Dog.cpp Animal.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
+NAME = brain
+SRC = Cat.cpp Dog.cpp Animal.cpp main.cpp brain.cpp
 FLAG = -Wall -Werror -Wextra -std=c++98
 
 $(NAME):

@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 18:59:30 by mcipolla          #+#    #+#             */
-/*   Updated: 2023/01/30 15:25:03 by mcipolla         ###   ########.fr       */
+/*   Created: 2023/01/30 15:01:23 by mcipolla          #+#    #+#             */
+/*   Updated: 2023/01/30 15:01:35 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
-	std::cout << "Animal Costructor" << std::endl;
+	std::cout << "WrongAnimal Costructor" << std::endl;
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << "Animal Destructor" << std::endl;
+	std::cout << "WrongAnimal Destructor" << std::endl;
 }
 
-Animal::Animal(const Animal& cpy)
+WrongAnimal::WrongAnimal(const WrongAnimal& cpy)
 {
 	this->_type = cpy._type;
-	std::cout << "Animal Copy constructor" << std::endl;
+	std::cout << "WrongAnimal Copy constructor" << std::endl;
 }
 
-void	Animal::makeSound() const
+void	WrongAnimal::makeSound() const
 {
 }
 
-const std::string	&Animal::getType() const
+const std::string	&WrongAnimal::getType() const
 {
 	return this->_type;
 }
 
-Animal	&Animal::operator=(const Animal & other)
+WrongAnimal	&WrongAnimal::operator=(const WrongAnimal & other)
 {
 	this->_type = other._type;
 	return *this;

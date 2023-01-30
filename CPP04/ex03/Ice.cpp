@@ -6,7 +6,7 @@
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 17:42:56 by mcipolla          #+#    #+#             */
-/*   Updated: 2022/09/10 18:57:02 by mcipolla         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:34:07 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ std::string	const & Ice::getType() const
 	return (this->_type);
 }
 
-AMateria* Ice::clone() const
+Ice* Ice::clone() const
 {
 	Ice	*ret = new Ice;
 	return (ret);

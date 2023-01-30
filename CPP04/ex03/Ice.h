@@ -6,7 +6,7 @@
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 17:37:24 by mcipolla          #+#    #+#             */
-/*   Updated: 2022/09/10 18:56:57 by mcipolla         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:35:25 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@
 
 class Ice : public AMateria
 {
-	private:
-		std::string	_type;
 	public:
 		Ice();
-		~Ice();
 		Ice(Ice const & ref);
+		~Ice();
+
 		Ice & operator=(Ice const & ref);
+		
 		std::string const & getType() const; //Returns the materia type
-		AMateria* clone() const;
+		Ice* clone() const;
 		void use(ICharacter& target);
+	private:
+		std::string	_type;
 };
 
 #endif

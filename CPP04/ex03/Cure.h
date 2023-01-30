@@ -6,7 +6,7 @@
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 18:24:29 by mcipolla          #+#    #+#             */
-/*   Updated: 2022/09/10 18:25:04 by mcipolla         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:33:31 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,15 @@ class Cure : public AMateria
 		std::string	_type;
 	public:
 		Cure();
+		Cure(const Cure & ref);
 		~Cure();
+
+		Cure & operator=(const Cure & ref);
+
 		std::string const & getType() const; //Returns the materia type
-		AMateria* clone() const;
+		Cure* clone() const;
 		void use(ICharacter& target);
+		std::string	getType();
 };
 
 #endif
