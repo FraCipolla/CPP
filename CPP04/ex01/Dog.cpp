@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 17:40:08 by mcipolla          #+#    #+#             */
-/*   Updated: 2023/01/30 12:39:40 by mcipolla         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:41:03 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 
-Cat::Cat()
+Dog::Dog()
 {
-	this->_type = "Cat";
-	std::cout << "Cat costructor" << std::endl;
+	this->_type = "Dog";
+	this->_brain = new Brain();
+	std::cout << "Dog costructor" << std::endl;
 }
 
-Cat::~Cat()
+Dog::~Dog()
 {
-	std::cout << "Cat destructor" << std::endl;
+	std::cout << "Dog destructor" << std::endl;
+	delete(_brain);
 }
 
-void	Cat::makeSound() const
+void	Dog::makeSound() const
 {
-	std::cout << "Meow Meow" << std::endl;
+	std::cout << "Woof Woof" << std::endl;
 }

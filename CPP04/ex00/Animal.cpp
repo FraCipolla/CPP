@@ -6,11 +6,11 @@
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:59:30 by mcipolla          #+#    #+#             */
-/*   Updated: 2022/10/07 19:16:01 by mcipolla         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:39:36 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.h"
+#include "Animal.hpp"
 
 Animal::Animal()
 {

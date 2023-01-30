@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 17:40:08 by mcipolla          #+#    #+#             */
-/*   Updated: 2023/01/30 12:39:40 by mcipolla         ###   ########.fr       */
+/*   Created: 2022/10/07 18:45:38 by mcipolla          #+#    #+#             */
+/*   Updated: 2023/01/30 12:56:45 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Dog.hpp"
 #include "Cat.hpp"
+#include "Animal.hpp"
 
-Cat::Cat()
+int	main()
 {
-	this->_type = "Cat";
-	std::cout << "Cat costructor" << std::endl;
-}
+	Animal	*(animal[6]);
 
-Cat::~Cat()
-{
-	std::cout << "Cat destructor" << std::endl;
-}
-
-void	Cat::makeSound() const
-{
-	std::cout << "Meow Meow" << std::endl;
+	for(int i = 0; i < 6; i++) {
+		if (i & 1)
+			animal[i] = new Dog();
+		else
+			animal[i] = new Cat();
+		std::cout << "\n";
+	}
+	for (int i = 0; i < 6; i++) {
+		delete (animal[i]);
+	}
+	return 0;
 }

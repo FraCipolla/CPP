@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.h                                              :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 17:37:51 by mcipolla          #+#    #+#             */
-/*   Updated: 2022/10/07 19:14:57 by mcipolla         ###   ########.fr       */
+/*   Created: 2022/10/07 18:59:30 by mcipolla          #+#    #+#             */
+/*   Updated: 2023/01/30 12:39:56 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_H
-#define DOG_H
+#include "Animal.hpp"
 
-#include "Animal.h"
-#include <iostream>
-
-class Dog : public Animal
+Animal::Animal()
 {
-private:
-	
-public:
-	Dog();
-	~Dog();
-	void	makeSound() const;
-};
+	std::cout << "Animal Costructor" << std::endl;
+}
 
-#endif
+Animal::~Animal()
+{
+	std::cout << "Animal Destructor" << std::endl;
+}
+
+void	Animal::makeSound() const
+{
+}
+
+const std::string	&Animal::getType() const
+{
+	return this->_type;
+}

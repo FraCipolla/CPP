@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.h                                              :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 17:37:51 by mcipolla          #+#    #+#             */
-/*   Updated: 2022/10/07 19:15:03 by mcipolla         ###   ########.fr       */
+/*   Created: 2022/10/07 17:34:12 by mcipolla          #+#    #+#             */
+/*   Updated: 2023/01/30 12:35:18 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_H
-#define CAT_H
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-#include "Animal.h"
+#include <string>
 #include <iostream>
 
-class Cat : public Animal
+class Animal
 {
-private:
-	
+protected:
+	std::string	_type;
 public:
-	Cat();
-	~Cat();
+	Animal();
+	~Animal();
 	void	makeSound() const;
+	const std::string	&getType() const;
 };
 
 #endif

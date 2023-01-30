@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 17:40:08 by mcipolla          #+#    #+#             */
-/*   Updated: 2023/01/30 12:39:40 by mcipolla         ###   ########.fr       */
+/*   Created: 2022/10/07 17:37:51 by mcipolla          #+#    #+#             */
+/*   Updated: 2023/01/30 12:39:01 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef CAT_HPP
+#define CAT_HPP
 
-Cat::Cat()
-{
-	this->_type = "Cat";
-	std::cout << "Cat costructor" << std::endl;
-}
+#include "Animal.hpp"
+#include <iostream>
+#include "Brain.hpp"
 
-Cat::~Cat()
+class Cat : public Animal
 {
-	std::cout << "Cat destructor" << std::endl;
-}
+private:
+	Brain*	_brain;
+public:
+	Cat();
+	~Cat();
+	void	makeSound() const;
+};
 
-void	Cat::makeSound() const
-{
-	std::cout << "Meow Meow" << std::endl;
-}
+#endif

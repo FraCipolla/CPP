@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 17:40:08 by mcipolla          #+#    #+#             */
-/*   Updated: 2023/01/30 12:39:40 by mcipolla         ###   ########.fr       */
+/*   Created: 2023/01/30 12:36:39 by mcipolla          #+#    #+#             */
+/*   Updated: 2023/01/30 12:37:54 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Brain.hpp"
 
-Cat::Cat()
+#include <iostream>
+
+Brain::Brain()
 {
-	this->_type = "Cat";
-	std::cout << "Cat costructor" << std::endl;
+	std::cout << "Brain constructor" << std::endl;
 }
 
-Cat::~Cat()
+Brain::~Brain()
 {
-	std::cout << "Cat destructor" << std::endl;
-}
-
-void	Cat::makeSound() const
-{
-	std::cout << "Meow Meow" << std::endl;
+	std::cout << "Brain destructor" << std::endl;
 }

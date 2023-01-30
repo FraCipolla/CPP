@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.h                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 17:34:12 by mcipolla          #+#    #+#             */
-/*   Updated: 2022/10/07 19:13:00 by mcipolla         ###   ########.fr       */
+/*   Created: 2022/10/07 17:37:51 by mcipolla          #+#    #+#             */
+/*   Updated: 2023/01/30 12:35:33 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-#define ANIMAL_H
+#ifndef DOG_HPP
+#define DOG_HPP
 
-#include <string>
+#include "Animal.hpp"
 #include <iostream>
 
-class Animal
+class Dog : public Animal
 {
-protected:
-	std::string	_type;
+private:
+	
 public:
-	Animal();
-	~Animal();
+	Dog();
+	~Dog();
 	void	makeSound() const;
-	const std::string	&getType() const;
 };
 
 #endif
