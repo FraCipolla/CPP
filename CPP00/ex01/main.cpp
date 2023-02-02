@@ -59,8 +59,11 @@ void	search_print(PhoneBook *phone, Contacts *contacts){
 		std::cout << "No contacts to display, please run ADD before!" << std::endl;
 		return ;
 	}
+	std::cout << "|-------------------------------------------|" << std::endl;
+	std::cout << "|    Index|First Name| Last Name|  Nickname |" << std::endl;
+	std::cout << "|-------------------------------------------|" << std::endl;
 	for (int i = 0; i < contacts->get_n_contcts() && i < 8; i++){
-		std::cout << "Index: "; std::cout << i; std::cout << "  |";
+		std::cout << "         " << i; std::cout << "|";
 		std::cout << return_str(phone->phone_book[i].get_FirstName()); std::cout << "|";
 		std::cout << return_str(phone->phone_book[i].get_LastName()); std::cout << "|";
 		std::cout << return_str(phone->phone_book[i].get_Nickname());

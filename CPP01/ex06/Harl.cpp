@@ -3,48 +3,27 @@
 
 void	Harl::complain( std::string level )
 {
-	void	(Harl::*complaint[])( void ) = {
-		&Harl::debug,
-		&Harl::info,
-		&Harl::warning,
-		&Harl::error
-	};
 	std::string complaintLevels[] = {
-		"debug",
-		"info",
-		"warning",
-		"error"
+		"DEBUG",
+		"INFO",
+		"WARNING",
+		"ERROR"
 	};
-	int c = 3;
-	int i;
-	switch (c){
-		case 0:
-			if (level == "DEBUG")
-				i = 0;
-			break;
-		case 1:
-			if (level == "INFO")
-				i = 1;
-			break;
-		case 2:
-			if (level == "WARNING")
-				i = 2;
-			break;
-		case 3:
-			if (level == "ERROR")
-				i = 3;
-			break;
-		default:{
-			i = 4;
-			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-		}
-	}
-	while (i < 4)
-	{
-		void (Harl::*selectedComplaint)( void ) = complaint[i];
-		if (level == complaintLevels[i])
-			(this->*selectedComplaint)();
+	int i = 0;
+	while (i < 4 && complaintLevels[i] != level)
 		i++;
+	switch (i){
+		case 0:
+			Harl::debug();
+		case 1:
+			Harl::info();
+		case 2:
+			Harl::warning();
+		case 3:
+			Harl::error();
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 }
 
