@@ -6,7 +6,7 @@
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:40:17 by mcipolla          #+#    #+#             */
-/*   Updated: 2023/02/02 15:47:27 by mcipolla         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:49:29 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
  {
     if (n_contacts < 8)
         n_contacts += 1;
+	if (n_contacts == 8)
+		n_contacts = 0;
 }
 void		Contacts::setFirstName(std::string& str)
 {

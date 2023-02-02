@@ -1,4 +1,5 @@
 #include "replace.hpp"
+#include <string>
 
 Filename::Filename(void){
 }
@@ -34,15 +35,24 @@ bool	Filename::set_infile_outfile(std::string in, std::string out){
 
 void	Filename::search_replace(std::string search, std::string replace)
 {
-	std::string	tmp;
+	std::string	result;
+	size_t		toReplaceLen = search.length();
 
-	while(1){
-		my_file >> tmp;
-		if (tmp == search)
-			tmp = replace;
-		outfile << tmp << " ";
-		if (my_file.eof())
-			break;
+	if (search == "" || replace == "")
+	{
+		std::cerr << "Strings can't be empty" << std::endl;
+		return ;
 	}
-	outfile << std::endl;
+	result.assign(std::istreambuf_iterator<char>(this->my_file),
+			std::istreambuf_iterator<char>());
+	for (size_t pos = 0; pos < result.length(); pos++)
+	{
+		if (result.compare(pos, toReplaceLen, search) == 0)
+		{
+			result.erase(pos, toReplaceLen);
+			result.insert(pos, replace);
+			/* result.replace(pos, toReplaceLen, replacement); */
+		}
+	}
+	outfile << result;
 }

@@ -8,7 +8,7 @@
 class Filename{
 	private:
 		std::fstream	my_file;
-		std::fstream	outfile;
+		std::ofstream	outfile;
 		std::string		search;
 		std::string		replace;
 	public:

@@ -6,7 +6,7 @@
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 17:37:51 by mcipolla          #+#    #+#             */
-/*   Updated: 2023/01/30 14:16:05 by mcipolla         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:24:06 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
-#include <iostream>
 #include "Brain.hpp"
 
 class Cat : public Animal
