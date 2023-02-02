@@ -1,24 +1,29 @@
 #include "Zombie.hpp"
 
-int	main(){
-	std::cout << "A WILD ZOMBIE \"manually\" APPEARS!" << std::endl;
-	{
-		Zombie	robert("Robert");
-		robert.announce();
-		std::cout << "FAST! KILL HIM!!" << std::endl;
-	}
-	std::cout << "ANOTHER ZOMBIE IS APPEARING!, using the function"
-		" newZombie"<< std::endl;
-	{
-		Zombie	*georges = newZombie("Georges");
-		georges->announce();
-		std::cout << "DON'T STOP SHOOTING!!" << std::endl;
-		delete georges;
-	}
-	{
-		std::cout << "A THIRD ONE IS COMING! using the function"
-			" randomChump"<< std::endl;
-		randomChump("Mark");
-	}
-	std::cout << "GG GUYS, we survived this time!!" << std::endl;
+#include "Zombie.hpp"
+
+Zombie	*newZombie(std::string name);
+void	randomChump(std::string name);
+
+int	main(void)
+{
+	std::cout << "============= stackZombies =============" << std::endl;
+	Zombie	zombie1("Zombie1");
+	Zombie	zombie2("Zombie2");
+	Zombie	zombie3;
+
+	zombie1.announce();
+	zombie2.announce();
+	zombie3.announce();
+	randomChump("randomChumpZ");
+
+	std::cout << std::endl;
+	std::cout << "============= heapZombies ==============" << std::endl;
+	Zombie	*heapZ;
+
+	heapZ = newZombie("HeapZ");
+	heapZ->announce();
+	delete(heapZ);
+
+	return (0);
 }

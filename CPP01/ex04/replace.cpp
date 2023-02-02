@@ -26,16 +26,16 @@ bool	Filename::set_infile_outfile(std::string in, std::string out){
 		return (false);
 	}
 	else{
-		outfile.open("out.txt", std::ios_base::out);
-		std::cout << "I'm creating out.txt as output" << std::endl;
+		outfile.open(in + ".replace", std::ios_base::out);
+		std::cout << "I'm creating " << in + ".replace" << "as output" << std::endl;
 	}
 	return (true);
 }
 
-void	Filename::search_replace(std::string search, std::string replace){
+void	Filename::search_replace(std::string search, std::string replace)
+{
 	std::string	tmp;
 
-	std::cout << "I'm writing to out.txt replacing " << search << " with " << replace << std::endl;
 	while(1){
 		my_file >> tmp;
 		if (tmp == search)

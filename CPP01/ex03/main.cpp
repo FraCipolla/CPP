@@ -1,9 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/02 16:01:49 by mcipolla          #+#    #+#             */
+/*   Updated: 2023/02/02 16:01:49 by mcipolla         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 #include <iostream>
 
-int main(){
+int main()
+{
 	{
 	Weapon club = Weapon("crude spiked club");
 	HumanA bob("Bob", club);
