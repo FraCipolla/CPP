@@ -1,15 +1,23 @@
-NAME = Convert
-SRC = main.cpp Number.cpp
-FLAGS = -Wall -Wextra -Werror -std=c++98
+NAME	=	convert
+CC		=	c++
+FLAGS	=	-Wall -Werror -Wextra -std=c++98 -g
+SRC		=	main.cpp Number.cpp
+OBJS	=	$(SRC:.cpp=.o)
 
-$(NAME):
-	g++ $(FLAGS) $(SRC) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 all: $(NAME)
 
+%.o: %.cpp
+	$(CC) $(FLAGS) -c $< -o $@
+
 clean:
-		rm -f $(NAME)
+	rm -f $(OBJS)
 
-fclean:	clean
+fclean: clean
+	rm -f $(NAME)
+	
+re: fclean all
 
-re:	fclean all
+.PHONY: all clean fclean re

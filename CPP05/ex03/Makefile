@@ -1,9 +1,13 @@
 NAME	=	Bureaucrat
 CC		=	c++
-FLAGS	=	-Wall -Werror -Wextra -std=c++98
+FLAGS	=	-Wall -Werror -Wextra -std=c++98 -g
 SRC		=	main.cpp \
 			Bureaucrat.cpp \
-			Form.cpp
+			AForm.cpp \
+			ShrubberyCreationForm.cpp \
+			RobotomyRequestForm.cpp \
+			PresidentialPardonForm.cpp \
+			Intern.cpp
 OBJS	=	$(SRC:.cpp=.o)
 
 $(NAME): $(OBJS)

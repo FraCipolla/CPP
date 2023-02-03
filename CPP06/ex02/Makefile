@@ -1,7 +1,8 @@
-NAME	=	EasyFind
+NAME	=	realType
 CC		=	c++
-FLAGS	=	-Wall -Werror -Wextra -std=c++98
-SRC		=	main.cpp
+FLAGS	=	-Wall -Werror -Wextra -std=c++98 -g
+SRC		=	main.cpp \
+			Classes.cpp
 OBJS	=	$(SRC:.cpp=.o)
 
 $(NAME): $(OBJS)
@@ -17,7 +18,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-
+	
 re: fclean all
 
 .PHONY: all clean fclean re

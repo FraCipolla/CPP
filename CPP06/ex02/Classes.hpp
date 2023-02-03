@@ -1,23 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Classes.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddelladi <ddelladi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 18:18:17 by ddelladi          #+#    #+#             */
-/*   Updated: 2022/10/10 18:34:06 by ddelladi         ###   ########.fr       */
+/*   Created: 2022/10/10 18:20:02 by ddelladi          #+#    #+#             */
+/*   Updated: 2022/10/10 18:37:55 by ddelladi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Classes.hpp"
+#ifndef CLASSES_HPP
+# define CLASSES_HPP
+# include <cstdlib>
+# include <iostream>
+# include <ctime>
 
-int	main()
+class Base
 {
-	Base*	n;
+	public:
+		virtual ~Base();
+};
 
-	n = generate();
-	identify(n);
-	identify(*n);
-	return (0);
-}
+class A : public Base
+{
+
+};
+
+class B : public Base
+{
+
+};
+
+class C : public Base
+{
+
+};
+
+Base*	generate(void);
+void	identify(Base* p);
+void	identify(Base& p);
+
+#endif

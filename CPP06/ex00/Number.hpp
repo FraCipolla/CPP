@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ABC.h                                              :+:      :+:    :+:   */
+/*   Number.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 01:16:48 by mcipolla          #+#    #+#             */
-/*   Updated: 2022/09/13 01:19:10 by mcipolla         ###   ########.fr       */
+/*   Created: 2022/09/12 16:24:23 by mcipolla          #+#    #+#             */
+/*   Updated: 2022/10/10 13:47:16 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ABC_H
-#define ABC_H
+#ifndef NUMBER_HPP
+#define NUMBER_HPP
 
-#include "Base.h"
+#include <string>
+#include <iostream>
+#include <stdint.h>
 
-class A : public Base {};
-
-class B : public Base {};
-
-class C : public Base {};
+class Number
+{
+private:
+	std::string	_in;
+public:
+	Number();
+	~Number();
+	std::string		convertChar(std::string in);
+	std::string		convertInt(std::string in);
+	std::string		convertFloat(std::string in);
+	std::string		convertDouble(std::string in);
+};
 
 #endif

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Number.h"
+#include "Number.hpp"
 
 int main(int argc, char *argv[])
 {

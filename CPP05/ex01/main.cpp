@@ -1,106 +1,48 @@
-#include "Bureaucrat.h"
+#include "Form.hpp"
 
-int main(void)
+int	main()
 {
-	Bureaucrat francis("Francis", 100);
-	std::cout << francis << std::endl;
-
-	Form form1("Taxes", 100, 50);
-	std::cout << form1 << std::endl;
-	form1.beSigned(francis);
-	std::cout << form1 << std::endl;
-
-	std::cout << "---" << std::endl;
-
-	Form form2("NDA", 99, 50);
-	std::cout << form2 << std::endl;
-	try
-	{
-		francis.signForm(form2);
-	}
-	catch(std::exception const &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << form2 << std::endl;
-
-	std::cout << "---" << std::endl;
-
-	Form form3("Other Paper", 101, 50);
-	std::cout << form3 << std::endl;
-	francis.signForm(form3);
-	std::cout << form3 << std::endl;
-	try
-	{
-		francis.signForm(form3);
-	}
-	catch(std::exception const &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << form3 << std::endl;
-
-	std::cout << "---" << std::endl;
+	Bureaucrat	b("Carlo", 1);
 
 	try
 	{
-		Form formException("NDA", 99, 50);
-		std::cout << formException << std::endl;
-		formException.beSigned(francis);
-		std::cout << formException << std::endl;
+		b.incrementGrade(1);
 	}
-	catch(std::exception const &e)
+	catch (std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << e.what() << '\n';
 	}
-
-	std::cout << "---" << std::endl;
-
 	try
 	{
-		Form formException("Important Form", 1000, 50);
-		std::cout << formException << std::endl;
+		std::cout << b;
+		Bureaucrat	c(Bureaucrat("Stefano", 155));
 	}
-	catch(std::exception const &e)
+	catch (std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << e.what() << '\n';
 	}
-
-	std::cout << "---" << std::endl;
-
 	try
 	{
-		Form formException("Important Form", 0, 50);
-		std::cout << formException << std::endl;
+		Bureaucrat	c = b;
+		std::cout << c;
 	}
-	catch(std::exception const &e)
+	catch (std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << e.what() << '\n';
 	}
-
-	std::cout << "---" << std::endl;
-
 	try
 	{
-		Form formException("Important Form", 100, 1000);
-		std::cout << formException << std::endl;
+		Form	f("Primo form", 120, 5);
+		std::cout << f;
+		std::cout << b;
+		b.signForm(f);
+		std::cout << f;
+		Form	g(f);
+		Form	h("Invalid form", -1, -3);
 	}
-	catch(std::exception const &e)
+	catch (std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	std::cout << "---" << std::endl;
-
-	try
-	{
-		Form formException("Important Form", 100, 0);
-		std::cout << formException << std::endl;
-	}
-	catch(std::exception const &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
+		std::cerr << e.what() << '\n';
+	}	
 	return (0);
 }

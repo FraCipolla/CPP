@@ -1,65 +1,86 @@
-#include "Form.h"
+#include "Form.hpp"
 
-Form::Form(const std::string name, int signGrade, int executeGrade):
-	_name(name), _signed(false), _signGrade(signGrade), _executeGrade(executeGrade)
+Form::Form() : _name("no_name"), _signed(false), _minGradeToSign(150), _minGradeToExecute(150)
 {
-	if (signGrade < 1 || executeGrade < 1)
-		throw Form::GradeTooHighException();
-	else if (signGrade > 150 || executeGrade > 150)
-		throw Form::GradeTooLowException();
+	std::cout << "Default constructor called on Form" << std::endl;
+	if (this->_minGradeToSign > 150 || this->_minGradeToExecute > 150)
+		throw (Form::GradeTooLowException());
+	if (this->_minGradeToSign < 1 || this->_minGradeToSign < 1)
+		throw (Form::GradeTooHighException());
+}
+
+Form::Form(std::string name, int minGradeToSign, int minGradeToExecute)
+	: _name(name), _signed(false), _minGradeToSign(minGradeToSign), _minGradeToExecute(minGradeToExecute)
+{
+	std::cout << "Constructor called on Form" << std::endl;
+	if (this->_minGradeToSign > 150 || this->_minGradeToExecute > 150)
+		throw (Form::GradeTooLowException());
+	if (this->_minGradeToSign < 1 || this->_minGradeToSign < 1)
+		throw (Form::GradeTooHighException());
+}
+
+Form::Form(Form const & src) : _name(src.getName()), _signed(false), _minGradeToSign(src.getMinGradeToSign()), _minGradeToExecute(src.getMinGradeToExecute())
+{
+	std::cout << "Copy constructor called on Form" << std::endl;
+	if (this->_minGradeToSign > 150 || this->_minGradeToExecute > 150)
+		throw (Form::GradeTooLowException());
+	if (this->_minGradeToSign < 1 || this->_minGradeToSign < 1)
+		throw (Form::GradeTooHighException());
+}
+
+Form&	Form::operator=(Form const & rhs)
+{
+	std::cout << "Copy assignment operator called on Form" << std::endl;
+	if (this == &rhs)
+		return (*this);
+	this->_signed = false;
+	if (this->_minGradeToSign > 150 || this->_minGradeToExecute > 150)
+		throw (Form::GradeTooLowException());
+	if (this->_minGradeToSign < 1 || this->_minGradeToSign < 1)
+		throw (Form::GradeTooHighException());
+	return (*this);
 }
 
 Form::~Form()
 {
+	std::cout << "Destructor called on Form" << std::endl;
 }
 
-const char* Form::GradeTooHighException::what() const throw()
+std::string	Form::getName() const
 {
-	return "FormException: Grade too High";
+	return (this->_name);
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+bool	Form::getStatus() const
 {
-	return "FormException: Grade too Low";
+	return (this->_signed);
 }
 
-const char* Form::FormAlreadySignedException::what() const throw()
+int	Form::getMinGradeToSign() const
 {
-	return "FormException: The Form is already signed";
+	return (this->_minGradeToSign);
 }
 
-bool	Form::isSigned(void) const{
-	return this->_signed;
-}
-
-int	Form::getSignGrade(void) const
+int	Form::getMinGradeToExecute() const
 {
-	return this->_signGrade;
+	return (this->_minGradeToExecute);
 }
 
-int Form::getExecuteGrade(void) const
+void	Form::beSigned(Bureaucrat const & b)
 {
-	return this->_executeGrade;
+	if (this->_signed == true)
+		throw (Form::AlreadySignedException());
+	else if (b.getGrade() <= this->_minGradeToSign)
+		this->_signed = true;
+	else
+		throw (Form::GradeTooLowException());
 }
 
-std::string const	Form::getName()
+std::ostream&	operator<<(std::ostream & os, Form const & f)
 {
-	return this->_name;
-}
-
-void	Form::beSigned(Bureaucrat& bureaucrat)
-{
-	if (bureaucrat.get_grade() > this->_signGrade)
-		throw Form::GradeTooLowException();
-	else if (this->_signed)
-		throw Form::FormAlreadySignedException();
-	this->_signed = true;
-}
-
-std::ostream &operator<<(std::ostream &out, Form &form)
-{
-	out << "(" << form.getName() << ")[" << ((form.isSigned()) ? "Signed" : "Unsigned")
-		<< "]<Sign:" << form.getSignGrade() << ",Execute:"
-		<< form.getExecuteGrade() << ">";
-	return (out);
+	os << "form_name: " << f.getName() << std::endl \
+	<< "form_status: " << f.getStatus() << std::endl \
+	<< "form_min_grade_to_sign: " << f.getMinGradeToSign() << std::endl \
+	<< "form_min_grade_to_execute: " << f.getMinGradeToExecute() << std::endl;
+	return (os);
 }

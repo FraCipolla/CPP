@@ -1,57 +1,35 @@
-#include "Bureaucrat.h"
+#include "Bureaucrat.hpp"
 
-int main(void)
+int	main()
 {
-	Bureaucrat francis("Francis", 100);
-	std::cout << francis << std::endl;
-	francis.incrementGrade();
-	std::cout << francis << std::endl;
-	francis.decrementGrade();
-	std::cout << francis << std::endl;
+	Bureaucrat	b("Carlo", 1);
 
 	try
 	{
-		Bureaucrat jack("Jack", 0);
-		std::cout << jack << std::endl;
+		b.incrementGrade(1);
 	}
-	catch(std::exception const &e)
+	catch (std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << e.what() << '\n';
 	}
-
 	try
 	{
-		Bureaucrat jack("Jack", 1000);
-		std::cout << jack << std::endl;
+		std::cout << b;
+		Bureaucrat	c(Bureaucrat("Stefano", 155));
 	}
-	catch(std::exception const &e)
+	catch (std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << e.what() << '\n';
 	}
-
 	try
 	{
-		Bureaucrat jack("Jack", 1);
-		std::cout << jack << std::endl;
-		jack.incrementGrade();
-		std::cout << jack << std::endl;
+		Bureaucrat	c = b;
+		std::cout << c;
 	}
-	catch(std::exception const &e)
+	catch (std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << e.what() << '\n';
 	}
-
-	try
-	{
-		Bureaucrat jack("Jack", 150);
-		std::cout << jack << std::endl;
-		jack.decrementGrade();
-		std::cout << jack << std::endl;
-	}
-	catch(std::exception const &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
+	
 	return (0);
 }
