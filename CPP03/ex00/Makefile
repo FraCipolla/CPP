@@ -3,7 +3,7 @@ SRC = ClapTrap.cpp main.cpp
 FLAG = -Wall -Wextra -Werror -std=c++98
 
 $(NAME):
-	g++ $(FLAG) $(SRC) -o $(NAME)
+	c++ $(FLAG) $(SRC) -o $(NAME)
 
 clean:
 		rm -f $(NAME)

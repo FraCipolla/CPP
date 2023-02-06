@@ -6,7 +6,7 @@
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 17:19:33 by mcipolla          #+#    #+#             */
-/*   Updated: 2023/01/30 17:43:20 by mcipolla         ###   ########.fr       */
+/*   Updated: 2023/02/06 12:27:10 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ Character::Character(std::string name) : _name(name)
 	for (int i = 0; i < 4; i++)
 	{
 		(this->_slot)[i] = 0;
+	}
+	for (int i = 0; i < 10; i++)
+	{
+		(this->_drop)[i] = 0;
 	}
 }
 
@@ -36,10 +40,15 @@ Character::Character(const Character & ref) : _name(ref.getName() + "_copy")
 Character::~Character()
 {
 	std::cout << "Deleting Character " << _name << " and freeing Materia" << std::endl;
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (this->_slot[i])
 			delete (this->_slot[i]);
+	}
+	for (int i = 0; i < 10; i++)
+	{
+		if (this->_drop[i])
+			delete (this->_drop[i]);
 	}
 }
 
@@ -84,9 +93,16 @@ void	Character::unequip(int idx)
 			std::cout << "There's nothing on that slot" << std::endl;
 		if (_slot[idx])
 		{
+			int i = 0;
+			while (_drop[i] != 0)
+				i++;
+			if (i == 10) {
+				std::cout << "Can't drop more Materia, the floor is full!" << std::endl;
+				return ;
+			}
+			_drop[i] = _slot[idx];
 			_slot[idx] = NULL;
-			AMateria *ptr = (this->_slot)[idx];
-			std::cout << ptr->getType() << " unequipped at slot " << idx << std::endl;
+			std::cout << _drop[i]->getType() << " unequipped at slot " << idx << std::endl;
 		}
 	}
 	else

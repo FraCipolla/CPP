@@ -6,7 +6,7 @@
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:45:38 by mcipolla          #+#    #+#             */
-/*   Updated: 2023/01/30 15:14:58 by mcipolla         ###   ########.fr       */
+/*   Updated: 2023/02/06 10:27:12 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,11 @@ int	main()
 	j->makeSound();
 	w->makeSound();
 	meta->makeSound();
+	
+	delete(meta);
+	delete(j);
+	delete(i);
+	delete(w);
+	
 	return 0;
 }

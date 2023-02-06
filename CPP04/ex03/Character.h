@@ -6,7 +6,7 @@
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 15:00:18 by mcipolla          #+#    #+#             */
-/*   Updated: 2023/01/30 16:30:52 by mcipolla         ###   ########.fr       */
+/*   Updated: 2023/02/06 12:20:19 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Character : public ICharacter
 	private:
 		AMateria			*(_slot[4]);
 		std::string const	_name;
+		AMateria			*(_drop[10]);
 	public:
 		Character(std::string name);
 		Character(const Character & ref);
