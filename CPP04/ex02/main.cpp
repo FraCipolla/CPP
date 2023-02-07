@@ -5,33 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 18:45:38 by mcipolla          #+#    #+#             */
-/*   Updated: 2023/01/30 14:59:48 by mcipolla         ###   ########.fr       */
+/*   Created: 2022/09/17 14:31:44 by ddelladi          #+#    #+#             */
+/*   Updated: 2023/02/06 18:48:10 by mcipolla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "Animal.hpp"
+#include "Dog.class.hpp"
+#include "Cat.class.hpp"
 
 int	main()
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	Animal	*(animal[6]);
-
-	delete j;//should not create a leak
-	delete i;
-	
-	for(int i = 0; i < 6; i++) {
-		if (i & 1)
-			animal[i] = new Dog();
-		else
-			animal[i] = new Cat();
-		std::cout << "\n";
-	}
-	for (int i = 0; i < 6; i++) {
-		delete (animal[i]);
-	}
-	return 0;
+	Dog prova;
+	Cat prova2;
+	// Animal	prova3; // eliminate comment to prove that you can't instantiate Animal
+	return (0);
 }
