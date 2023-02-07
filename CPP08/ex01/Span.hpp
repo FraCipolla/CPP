@@ -1,51 +1,73 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcipolla <mcipolla@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/07 12:00:27 by mcipolla          #+#    #+#             */
+/*   Updated: 2023/02/07 12:05:56 by mcipolla         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SPAN_HPP
 # define SPAN_HPP
+
+# include <iostream>
+# include <iterator>
 # include <vector>
 # include <algorithm>
-# include <iostream>
+
+class Span;
 
 class Span
 {
-	private:
-		unsigned int		_size;
-		std::vector<int>	_storage;
-		Span();
-	public:
-		Span(unsigned int n);
-		Span(Span const & src);
-		Span&	operator=(Span const & rhs);
-		~Span();
-		void						addNumber(int n);
-		int							shortestSpan();
-		int							longestSpan();
-		std::vector<int>&			getVector();
-		void						crazyAdding();
-		class AlreadyFilled : public std::exception
-		{
-			public:
-				virtual const char * what() const throw()
-				{
-					return ("Span is already filled");
-				}
-		};
-		class OnlyOneStored : public std::exception
-		{
-			public:
-				virtual const char * what() const throw()
-				{
-					return ("Span contains only one element. Can't find span");
-				}
-		};
-		class SpanIsEmpty : public std::exception
-		{
-			public:
-				virtual const char * what() const throw()
-				{
-					return ("Span is empty. Can't find span");
-				}
-		};
-};
+    private:
+        unsigned int        _max_values;
+        std::vector<int>    _values;
 
-#include "Span.tpp"
+    public:
+        // Coplien
+        Span(unsigned int const & N);
+        Span(const Span&);
+        virtual ~Span();
+        Span &operator=(const Span& op);
+
+        // Getter - Setter
+
+        // Additionnal
+        void        addNumber(int);
+        long        shortestSpan(void);
+        long        longestSpan(void);
+
+        template < class Iterator >
+        void        addNumber(Iterator begin, Iterator end)
+        {
+            if (end - begin <= _max_values)
+                std::copy(begin, end, std::back_inserter(this->_values));
+            else
+            {
+                throw(NotEnoughSpace());
+            }
+            std::sort(this->_values.begin(), this->_values.end());
+        }
+
+        // Exceptions
+        class NotEnoughSpace : public std::exception
+        {
+            virtual const char* what() const throw() { return ("Not enough space in the span to add the range."); }
+        };
+
+
+        class Full : public std::exception
+        {
+            virtual const char* what() const throw() { return ("Span is full."); }
+        };
+
+        class CantSpan : public std::exception
+        {
+            virtual const char* what() const throw() { return ("Span have not enough values to do a span."); }
+        };
+};
 
 #endif
